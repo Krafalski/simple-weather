@@ -4,13 +4,24 @@
   "description": "A simple Weather App",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "K. Rafalski",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
-    "path": "^0.12.7"
-  }
+    "path": "^0.12.7",
+    "request": "^2.72.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krafalski/simple-weather.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Krafalski/simple-weather/issues"
+  },
+  "homepage": "https://github.com/Krafalski/simple-weather#readme"
 }
