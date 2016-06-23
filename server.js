@@ -10,9 +10,12 @@ var request         = require ('request');
 var app             = express();
 var port            = 3000;
 
-var geolocate       = "https://maps.googleapis.com/maps/api/geocode/json?address="
 
 var geolocateKey    = process.env.GOOGLEKEY;
+var forecastKey     = process.env.FORECASTKEY;
+
+var geolocate       = "https://maps.googleapis.com/maps/api/geocode/json?address="
+var getForecast        = " https://api.forecast.io/forecast/"+ forecastKey+'/';
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -28,20 +31,38 @@ app.get('/', function (req, res){
 });
 
 app.get('/weather', function (req, res){
-  var weatherZip = req.query;
-  weatherZip = weatherZip.address;
-  var query = geolocate + weatherZip + '&' + geolocateKey;
-  var query1 = request(query, function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    var data = JSON.parse(body)
-    var location = data.results[0].geometry.location;
-    console.log(location)
+  var weatherZip = req.query.address;
+  var queryLocation = geolocate + weatherZip + '&' + geolocateKey;
+  request(queryLocation, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var latlng = JSON.parse(body)
+      var location = latlng.results[0].geometry.location;
+      var lat = location.lat;
+      var lng = location.lng
+      console.log(lat,lng, forecastKey);
+      var forecast = getForecast + lat + ',' + lng;
+      console.log ("This is forecast", forecast);
+      request (forecast, function (error, response, body){
+        if (!error && response.statusCode == 200){
+          var forecastData = JSON.parse(body)
+          console.log ('This is forecastData', forecastData);
+          var report = [
 
-  }
-})
-  // var body = request(query1);
-  // console.log(query);
-  res.send('working on it!')
+          forecastData.currently.summary,
+          'temp: ' + forecastData.currently.temperature,
+          'humidity: ' + forecastData.currently.humidity
+        ]
+          res.send(report);
+        }
+      })
+    }
+  });
+
+
+
+
+
+
 
 
 });
