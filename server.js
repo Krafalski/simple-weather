@@ -46,20 +46,21 @@ app.get('/weather', function (req, res){
         if (!error && response.statusCode == 200){
           var forecastData = JSON.parse(body)
           console.log ('This is forecastData', forecastData);
-        //   var report = [
-        //
-        //   forecastData.currently.summary,
-        //   'temp: ' + forecastData.currently.temperature,
-        //   'humidity: ' + forecastData.currently.humidity
-        // ]
-         var dailyReport = forecastData.daily;
-         var everyDay = dailyReport.data.map(function (data){
-	var cherryPickData = [data.icon, data.summary, data.temperatureMax, data.apparentTemperatureMax]
-	return cherryPickData;
-
-});
-
-          res.send(everyDay);
+          var dailyReport = forecastData.daily;
+          var everyDay = dailyReport.data.map(function (data){
+        	   var cherryPickData = [data.icon, data.summary, data.temperatureMax, data.apparentTemperatureMax]
+        	  return cherryPickData;
+          });
+          var todaysReport = forecastData.hourly;
+          var everyHour = todaysReport.data.map(function(data){
+            var time = new Date (data.time);
+            var readableTime = time.toString();
+            var cherryPickData = [readableTime, data.icon, data.summary, data.temperature, data.apparentTemperature
+            ]
+            return cherryPickData;
+          })
+          res.send(todaysReport);
+          // res.send(everyDay);
         }
       })
     }
