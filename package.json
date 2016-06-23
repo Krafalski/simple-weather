@@ -10,6 +10,7 @@
   "author": "K. Rafalski",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
