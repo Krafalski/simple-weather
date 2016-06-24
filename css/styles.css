@@ -1,12 +1,21 @@
+/**********************************************
+                General
+**********************************************/
+
 body {
   color: #00488d;
   font-family: 'Arimo', sans-serif;
   background-color: #e4f0fb;
 }
 
-img {
-  width:100%;
+h1 {
+  font-family: 'Raleway', sans-serif;
 }
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+}
+
 #container{
   margin:auto;
 }
@@ -16,33 +25,106 @@ img {
   margin:auto;
 }
 
+/**********************************************
+                Form
+**********************************************/
+input {
+  display: inline-block;
+  padding:5px;
+  /*border-radius:2%;*/
+  /*font-size: 1.1em;*/
+}
+
+form {
+  display: inline-block;
+}
+span {
+  display: inline-block;
+}
+button {
+  padding:5px;
+  display: inline-block;
+  float:right;
+  font-family: 'Raleway', sans-serif;
+  background-color: #00488d;
+  border-radius:100%;
+  border: none;
+  box-shadow: 1px 1px 1px blue;
+  margin-left:10px;
+  color: white;
+}
+
+
+
+
+/**********************************************
+               7 Day
+**********************************************/
+
 #seven-day{
   width:90%;
   display:flex;
   justify-content: space-between;
   align-self:flex-start;
   /*border: 2px solid orchid;*/
+  min-width:70px;
 }
 .seven-day{
   display:inline-block;
   width:12%;
   border: 1px solid #ddd;
-  min-height: 300px;
+  height: 290px;
   align-self:flex-start;
   padding: 8px;
   background-color: white;
   margin-right:1px;
-
-}
-h1 {
-  font-family: 'Raleway', sans-serif;
+  overflow: auto;
 }
 
-h2 {
-  font-family: 'Raleway', sans-serif;
+#seven-day img {
+  width:100%;
 }
+/*
+.icon-7 {
+  min-height: 102px;
+}*/
 
-h3 {
+#seven-day h3 {
   font-size: 3.5vmin;
+  font-size:.8em;
   font-weight: lighter;
+  text-align: center;
+}
+
+.temp h3 {
+  font-weight: bold;
+  font-size: 1em;
+  color:orange;
+
+}
+
+/**********************************************
+               Hourly
+**********************************************/
+.hourly {
+  display: flex;
+}
+#hourly img {
+width: 100px;
+}
+
+.time div{
+  display:inline-block;
+}
+.hourly div {
+  display:inline-block;
+  float:left;
+}
+
+.icon-24{
+  display:inline-block;
+}
+
+h4 {
+  display:inline-block;
 }

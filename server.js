@@ -49,7 +49,7 @@ app.get('/weather', function (req, res){
           // console.log ('This is forecastData', forecastData);
           var dailyReport = forecastData.daily;
           var everyDay = dailyReport.data.map(function (data){
-        	   var cherryPickData = [ data.icon, data.summary,  'The temperature is ' + data.temperatureMax ,'The temperature feels like '+  data.apparentTemperatureMax]
+        	   var cherryPickData = [ data.icon,  data.temperatureMax + '°F','Feels like '+  data.apparentTemperatureMax + '°F',  data.summary,]
         	  return cherryPickData;
           });
           var todaysReport = forecastData.hourly;
@@ -63,13 +63,21 @@ app.get('/weather', function (req, res){
 
           var weather = htmlBuilder();
           var sevenDayContainer = '<h2> 7 Day Forecast for ' + req.query.address + '</h2>';
-          sevenDayContainer +='<div id="seven-day">'
+          sevenDayContainer +='<div id="seven-day">';
 
           for (var i=0; i < 7; i++){
             sevenDayContainer += sevenDayCellBuilder(everyDay, i);
           }
           sevenDayContainer +="</div>";
           weather += sevenDayContainer;
+
+          var hourlyContainer = '<h2> Hourly forcast </h2>';
+          hourlyContainer += '<div id="hourly">';
+          for (var j=0; j < 24; j++){
+            hourlyContainer += hourlyCellBuilder(everyHour, j);
+          }
+          hourlyContainer +="</div>";
+          weather += hourlyContainer;
 
           //res.send('<h2>' + everyDay + '</h2>' + '<h3>' + everyHour + '</h3>');
           // res.send(everyDay);
@@ -78,6 +86,7 @@ app.get('/weather', function (req, res){
       })
     }
   });
+});
 
 
 function htmlBuilder (){
@@ -91,15 +100,11 @@ function htmlBuilder (){
   html += '<div id="container">';
   html += '<div id="wrapper">';
   html += '<h1>Welcome to the Simple Weather App!</h1>';
-  html += '<div id="search-container">';
-  html += '<div class="search">';
   html += '<label class="search" for="zip"></label>';
   html += '<div>';
   html += '<form action="/weather" method="get">';
   html += '  <span class="help-block">Enter the zipcode for your location </span>';
   html += '<input id="address" name="address" type="text" placeholder="zipcode" class="input" required="">';
-  html += '</div>';
-  html += '</div>';
   html += '<label class="search" for="submit"></label>';
   html += '<button id="submit" type="submit" class="">Weather Me!</button>';
   html += '</form>';
@@ -116,7 +121,7 @@ sevenDayCell += getIcon(data[i][0]);
 // sevenDayCell += '<p>' + data[i][0] + '</p>' for troubleshooting non-matching icons
 sevenDayCell += '</div>';
 sevenDayCell += '<div class="seven-day-data">';
-sevenDayCell += '<h3>';
+sevenDayCell += '<h3 class="temp">';
 sevenDayCell += data[i][1];
 sevenDayCell += '</h3>';
 sevenDayCell += '<h3>';
@@ -129,6 +134,32 @@ sevenDayCell += '</div>';
 sevenDayCell += '</div>';
 
 return sevenDayCell;
+}
+
+function hourlyCellBuilder(data, j){
+  var hourlyCell='';
+  hourlyCell += '<div class="houlry">';
+  hourlyCell += '<div class="time">';
+  hourlyCell += data[j][0];
+  hourlyCell += '</div>';
+  hourlyCell += '<div class="icon-24">';
+  hourlyCell += getIcon(data[j][1]);
+  hourlyCell += '</div>';
+  hourlyCell += '<div class="hourly-data">';
+  hourlyCell += '<h4>';
+  hourlyCell += data[j][2];
+  hourlyCell += '</h4>';
+  hourlyCell += '<h4>';
+  hourlyCell += data[j][3];
+  hourlyCell += '</h4>';
+  hourlyCell += '<h4>';
+  hourlyCell += data[j][4];
+  hourlyCell += '</h4>';
+  hourlyCell += '</div>';
+  hourlyCell += '</div>';
+
+  return hourlyCell;
+
 }
 
 
@@ -172,7 +203,7 @@ function getIcon (icon){
 }
 
 
-});
+
 
 app.listen(port, function(){
   console.log('Server on port ',  port, '//', new Date());
