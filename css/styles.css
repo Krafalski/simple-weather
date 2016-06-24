@@ -5,7 +5,7 @@
 body {
   color: #00488d;
   font-family: 'Arimo', sans-serif;
-  background-color: #e4f0fb;
+  /*background-color: #e4f0fb;*/
 }
 
 h1 {
@@ -17,12 +17,14 @@ h2 {
 }
 
 #container{
+  background-color: #d4d0db;
   margin:auto;
 }
 
 #wrapper{
   width:90%;
   margin:auto;
+  background-color: #e4f0fb;
 }
 
 /**********************************************
@@ -62,7 +64,7 @@ button {
 **********************************************/
 
 #seven-day{
-  width:90%;
+  /*width:90%;*/
   display:flex;
   justify-content: space-between;
   align-self:flex-start;
@@ -73,12 +75,13 @@ button {
   display:inline-block;
   width:12%;
   border: 1px solid #ddd;
-  height: 290px;
+  height: 250px;
   align-self:flex-start;
   padding: 8px;
   background-color: white;
   margin-right:1px;
   overflow: auto;
+
 }
 
 #seven-day img {
@@ -116,14 +119,15 @@ button {
 
 #hourly {
   overflow: auto;
-  width:90%;
+  /*height: 360px;*/
+  /*width:90%;*/
   /*display:inline-block;*/
   /*margin: auto;*/
   /*margin-left: 100px;*/
 }
 
 #hourly img {
-width: 90px;
+width: 60px;
 display:inline-block;
 margin-left: 100px;
 }
@@ -152,6 +156,7 @@ margin-left: 100px;
   align-self: center;
   text-align: center;
   padding: 20px;
+  min-width: 107px;
 }
 .hourly div {
   border: 1px solid orange;

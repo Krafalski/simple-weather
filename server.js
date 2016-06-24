@@ -55,11 +55,8 @@ app.get('/weather', function (req, res){
           var todaysReport = forecastData.hourly;
           var everyHour = todaysReport.data.map(function(data){
             var time = new Date (data.time*1000);
-            var readableTime = time.toString();
-            var justTheHour = readableTime.split(' ');
-            justTheHour = justTheHour[4];
-            console.log(justTheHour);
-            var cherryPickData = [justTheHour, data.icon, data.summary, data.temperature, data.apparentTemperature
+            var justTheHour = timeFix(time);
+            var cherryPickData = [justTheHour, data.icon, data.summary, data.temperature + '°F'
             ]
             return cherryPickData;
           })
@@ -81,6 +78,9 @@ app.get('/weather', function (req, res){
           }
           hourlyContainer +="</div>";
           weather += hourlyContainer;
+          weather += htmlCloser();
+
+
 
           //res.send('<h2>' + everyDay + '</h2>' + '<h3>' + everyHour + '</h3>');
           // res.send(everyDay);
@@ -115,6 +115,16 @@ function htmlBuilder (){
 
   return html;
 };
+
+function htmlCloser (){
+var html =  '</div>';//close wrapper
+html += '</div>'; //close container
+html += '<script src="app.js"></script>'
+html += '</body>'
+html += '</html>'
+return html;
+
+}
 
 function sevenDayCellBuilder (data, i){
 var sevenDayCell = '';
@@ -154,9 +164,6 @@ function hourlyCellBuilder(data, j){
   hourlyCell += '</h4>';
   hourlyCell += '<h4>';
   hourlyCell += data[j][3];
-  hourlyCell += '</h4>';
-  hourlyCell += '<h4>';
-  hourlyCell += data[j][4];
   hourlyCell += '</h4>';
   hourlyCell += '</div>';
   hourlyCell += '</div>';
@@ -205,7 +212,26 @@ function getIcon (icon){
  return image;
 }
 
-
+function timeFix (mTime){
+  var readableTime = mTime.toString();
+  var justTheHour = readableTime.split(' ');
+  justTheHour = justTheHour[4];
+  var sliceTime = parseInt(justTheHour.slice(0,2));
+  var convertTime;
+  if (sliceTime > 12){
+    convertTime = sliceTime - 12;
+    convertTime = convertTime +  ":00 pm";
+  }  else if (sliceTime == 0){
+    convertTime = "12:00 am";
+  } else if (sliceTime === 12){
+    convertTime = sliceTime - 0;
+    convertTime = sliceTime + ":00 pm";
+  }  else if (sliceTime < 12 ){
+    console.log ('this is slicetime in the else ' + sliceTime);
+    convertTime = sliceTime + ":00 am";
+  } else {console.log('something has gone horribly wrong');}
+  return convertTime;
+}
 
 
 app.listen(port, function(){
