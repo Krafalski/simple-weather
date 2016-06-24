@@ -56,7 +56,10 @@ app.get('/weather', function (req, res){
           var everyHour = todaysReport.data.map(function(data){
             var time = new Date (data.time*1000);
             var readableTime = time.toString();
-            var cherryPickData = [readableTime, data.icon, data.summary, data.temperature, data.apparentTemperature
+            var justTheHour = readableTime.split(' ');
+            justTheHour = justTheHour[4];
+            console.log(justTheHour);
+            var cherryPickData = [justTheHour, data.icon, data.summary, data.temperature, data.apparentTemperature
             ]
             return cherryPickData;
           })
@@ -71,7 +74,7 @@ app.get('/weather', function (req, res){
           sevenDayContainer +="</div>";
           weather += sevenDayContainer;
 
-          var hourlyContainer = '<h2> Hourly forcast </h2>';
+          var hourlyContainer = '<h2 id="center"> Hourly forcast </h2>';
           hourlyContainer += '<div id="hourly">';
           for (var j=0; j < 24; j++){
             hourlyContainer += hourlyCellBuilder(everyHour, j);
@@ -138,7 +141,7 @@ return sevenDayCell;
 
 function hourlyCellBuilder(data, j){
   var hourlyCell='';
-  hourlyCell += '<div class="houlry">';
+  hourlyCell += '<div id="each-hour">';
   hourlyCell += '<div class="time">';
   hourlyCell += data[j][0];
   hourlyCell += '</div>';

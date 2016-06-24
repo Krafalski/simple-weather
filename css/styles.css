@@ -107,24 +107,73 @@ button {
                Hourly
 **********************************************/
 .hourly {
-  display: flex;
-}
-#hourly img {
-width: 100px;
+
 }
 
-.time div{
+#center {
+  text-align: center;
+}
+
+#hourly {
+  overflow: auto;
+  width:90%;
+  /*display:inline-block;*/
+  /*margin: auto;*/
+  /*margin-left: 100px;*/
+}
+
+#hourly img {
+width: 90px;
+display:inline-block;
+margin-left: 100px;
+}
+
+#each-hour {
+  display: block;
+  flex-direction: row;
+  align-items: center;
+  /*border-bottom: 1px solid black;*/
+  margin-top:auto;
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-basis: 100px;
+  background-color:white;
+}
+
+#each-hour div{
+  /*border: 1px solid green;*/
   display:inline-block;
 }
+
+.time{
+  display: inline-block;
+  align-self: center;
+  text-align: center;
+  padding: 20px;
+}
 .hourly div {
-  display:inline-block;
-  float:left;
+  border: 1px solid orange;
+  /*display:flex;
+  flex-direction: row;*/
+
 }
 
 .icon-24{
   display:inline-block;
+  margin:5px;
+  margin-top: 20px;
+}
+
+.hourly-data {
+  min-width: 200px;
+  margin:auto;
+  text-align: center;
+
 }
 
 h4 {
-  display:inline-block;
+  /*display:inline-block;*/
+  font-size:0.8em;
 }
