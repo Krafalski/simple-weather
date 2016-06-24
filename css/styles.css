@@ -2,3 +2,40 @@ body {
   background-color: blanchedalmond;
   color: orange;
 }
+
+img {
+  width:100%;
+}
+#container{
+  margin:auto;
+}
+
+#wrapper{
+  width:90%;
+  margin:auto;
+}
+
+#seven-day{
+  width:90%;
+  display:flex;
+  justify-content: space-between;
+  align-self:flex-start;
+  /*border: 2px solid orchid;*/
+}
+.seven-day{
+  display:inline-block;
+  width:12%;
+  border: 1px solid gold;
+  min-height: 270px;
+  align-self:flex-start;
+
+}
+
+h2 {
+  display:block;
+}
+
+h3 {
+  font-size: 0.85em;
+  font-weight: lighter;
+}
