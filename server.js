@@ -62,7 +62,7 @@ app.get('/weather', function (req, res){
           })
 
           var weather = htmlBuilder();
-          var sevenDayContainer = '<h2> 7 Day Forecast for ' + req.query.address + '</h2><br>';
+          var sevenDayContainer = '<h2> 7 Day Forecast for ' + req.query.address + '</h2>';
           sevenDayContainer +='<div id="seven-day">'
 
           for (var i=0; i < 7; i++){
@@ -84,12 +84,13 @@ function htmlBuilder (){
   var html = '<!DOCTYPE html>';
   html += '<html><head><meta charset="utf-8">';
   html += '<title>Simple Weather</title>';
+  html += "<link href='https://fonts.googleapis.com/css?family=Arimo:400,700,400italic|Raleway:400,700' rel='stylesheet' type='text/css'>"
   html += '<link href="styles.css" rel="stylesheet">';
   html += '</head>';
   html += '<body>';
   html += '<div id="container">';
   html += '<div id="wrapper">';
-  html += '<h1>This is it! The start of the weather app!</h1>';
+  html += '<h1>Welcome to the Simple Weather App!</h1>';
   html += '<div id="search-container">';
   html += '<div class="search">';
   html += '<label class="search" for="zip"></label>';

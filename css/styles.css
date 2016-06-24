@@ -1,6 +1,7 @@
 body {
-  background-color: blanchedalmond;
-  color: orange;
+  color: #00488d;
+  font-family: 'Arimo', sans-serif;
+  background-color: #e4f0fb;
 }
 
 img {
@@ -25,17 +26,23 @@ img {
 .seven-day{
   display:inline-block;
   width:12%;
-  border: 1px solid gold;
-  min-height: 270px;
+  border: 1px solid #ddd;
+  min-height: 300px;
   align-self:flex-start;
+  padding: 8px;
+  background-color: white;
+  margin-right:1px;
 
+}
+h1 {
+  font-family: 'Raleway', sans-serif;
 }
 
 h2 {
-  display:block;
+  font-family: 'Raleway', sans-serif;
 }
 
 h3 {
-  font-size: 0.85em;
+  font-size: 3.5vmin;
   font-weight: lighter;
 }
