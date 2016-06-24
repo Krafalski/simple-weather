@@ -39,16 +39,16 @@ app.get('/weather', function (req, res){
       var location = latlng.results[0].geometry.location;
       var lat = location.lat;
       var lng = location.lng
-      console.log(lat,lng, forecastKey);
+      // console.log(lat,lng, forecastKey);
       var forecast = getForecast + lat + ',' + lng;
-      console.log ("This is forecast", forecast);
+      // console.log ("This is forecast", forecast);
       request (forecast, function (error, response, body){
         if (!error && response.statusCode == 200){
           var forecastData = JSON.parse(body)
-          console.log ('This is forecastData', forecastData);
+          // console.log ('This is forecastData', forecastData);
           var dailyReport = forecastData.daily;
           var everyDay = dailyReport.data.map(function (data){
-        	   var cherryPickData = ['<div>'+ data.icon + '</div>', '<div>'+ data.summary + '</div>', '<div> The temperature is ' + data.temperatureMax + '</div>','<div> The temperature feels like '+  data.apparentTemperatureMax + '</div>']
+        	   var cherryPickData = [ data.icon, data.summary,  'The temperature is ' + data.temperatureMax ,'The temperature feels like '+  data.apparentTemperatureMax]
         	  return cherryPickData;
           });
           var todaysReport = forecastData.hourly;
@@ -59,18 +59,51 @@ app.get('/weather', function (req, res){
             ]
             return cherryPickData;
           })
-          res.send('<h2>' + everyDay + '</h2>' + '<h3>' + everyHour + '</h3>');
+
+          var weather = htmlBuilder();
+          console.log(weather);
+          var sevenDayContainer ='<div id="seven-day">'
+          for (var i=0; i < 7; i++){
+          sevenDayContainer += sevenDayCellBuilder(everyDay, i);
+          }
+          sevenDayContainer +="</div>";
+          weather = sevenDayContainer;
+
+          //res.send('<h2>' + everyDay + '</h2>' + '<h3>' + everyHour + '</h3>');
           // res.send(everyDay);
+          res.send(weather);
         }
       })
     }
   });
 
 
+function htmlBuilder (){
+  var html = '<div>could be container div';
+  return html;
+};
 
+function sevenDayCellBuilder (data, i){
+var sevenDayCell = '';
+sevenDayCell += '<div class="seven-day">';
+sevenDayCell += '<div class="icon-7">';
+sevenDayCell += data[i][0];
+sevenDayCell += '</div>';
+sevenDayCell += '<div class="seven-day-data">';
+sevenDayCell += '<h3>';
+sevenDayCell += data[i][1];
+sevenDayCell += '</h3>';
+sevenDayCell += '<h3>';
+sevenDayCell += data[i][2];
+sevenDayCell += '</h3>';
+sevenDayCell += '<h3>';
+sevenDayCell += data[i][3];
+sevenDayCell += '</h3>';
+sevenDayCell += '</div>';
+sevenDayCell += '</div>';
 
-
-
+return sevenDayCell;
+}
 
 
 });
