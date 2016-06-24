@@ -48,18 +48,18 @@ app.get('/weather', function (req, res){
           console.log ('This is forecastData', forecastData);
           var dailyReport = forecastData.daily;
           var everyDay = dailyReport.data.map(function (data){
-        	   var cherryPickData = [data.icon, data.summary, data.temperatureMax, data.apparentTemperatureMax]
+        	   var cherryPickData = ['<div>'+ data.icon + '</div>', '<div>'+ data.summary + '</div>', '<div> The temperature is ' + data.temperatureMax + '</div>','<div> The temperature feels like '+  data.apparentTemperatureMax + '</div>']
         	  return cherryPickData;
           });
           var todaysReport = forecastData.hourly;
           var everyHour = todaysReport.data.map(function(data){
-            var time = new Date (data.time);
+            var time = new Date (data.time*1000);
             var readableTime = time.toString();
             var cherryPickData = [readableTime, data.icon, data.summary, data.temperature, data.apparentTemperature
             ]
             return cherryPickData;
           })
-          res.send(todaysReport);
+          res.send('<h2>' + everyDay + '</h2>' + '<h3>' + everyHour + '</h3>');
           // res.send(everyDay);
         }
       })
