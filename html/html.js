@@ -2,20 +2,20 @@ function htmlBuilder (){
   var html = '<!DOCTYPE html>';
   html += '<html><head><meta charset="utf-8">';
   html += '<title>Simple Weather</title>';
-  html += "<link href='https://fonts.googleapis.com/css?family=Arimo:400,700,400italic|Raleway:400,700' rel='stylesheet' type='text/css'>"
+  html += "<link href='https://fonts.googleapis.com/css?family=Arimo:400,700,400italic|Raleway:400,700' rel='stylesheet' type='text/css'>";
+  html +='<link href="normalize.css" rel="stylesheet">';
   html += '<link href="styles.css" rel="stylesheet">';
   html += '</head>';
   html += '<body>';
   html += '<div id="container">';
   html += '<div id="wrapper">';
-  html += '<h1>Welcome to the Simple Weather App!</h1>';
-  html += '<label class="search" for="zip"></label>';
+  html += '<h1>A Simple Weather App</h1>';
   html += '<div>';
   html += '<form action="/weather" method="get">';
-  html += '  <span class="help-block">Enter the zipcode for your location </span>';
+  html += '<span class="help-block">Check out another location </span>';
   html += '<input id="address" name="address" type="text" placeholder="zipcode" class="input" required="">';
   html += '<label class="search" for="submit"></label>';
-  html += '<button id="submit" type="submit" class="">Weather Me!</button>';
+  html += '<button id="submit" type="submit" class=""></button>';
   html += '</form>';
   html += '</div>';
   return html;
@@ -28,7 +28,7 @@ html += '<script src="app.js"></script>'
 html += '</body>'
 html += '</html>'
 return html;
-}
+};
 
 function getIcon (icon){
   switch (icon){
@@ -54,7 +54,7 @@ function getIcon (icon){
       image = '<img src="fog.png" alt="fog">'
       break;
     case 'cloudy':
-      image = '<img src="cloudy.png" alt="cloudy">'
+      image = '<img src="cloudy4.png" alt="cloudy">'
       break;
     case 'partly-cloudy-day':
       image = '<img src="partly-cloudy-day.png" alt="partly-cloudy-day">'
@@ -65,9 +65,9 @@ function getIcon (icon){
     default:
       image = '<img src="default.png" alt="default">'
       break;
-}
+};
  return image;
-}
+};
 
 module.exports.builder = htmlBuilder;
 module.exports.closer = htmlCloser;

@@ -5,58 +5,61 @@
 body {
   color: #00488d;
   font-family: 'Arimo', sans-serif;
-  /*background-color: #e4f0fb;*/
+  background-color: #e4f0fb;
 }
 
-h1 {
-  font-family: 'Raleway', sans-serif;
-}
-
-h2 {
+h1, h2 {
   font-family: 'Raleway', sans-serif;
 }
 
 #container{
-  background-color: #d4d0db;
   margin:auto;
 }
 
-#wrapper{
+#wrapper {
   width:90%;
   margin:auto;
-  background-color: #e4f0fb;
 }
+
 
 /**********************************************
                 Form
 **********************************************/
+
 input {
   display: inline-block;
   padding:5px;
-  /*border-radius:2%;*/
-  /*font-size: 1.1em;*/
+  margin-left:5px;
 }
 
 form {
   display: inline-block;
 }
+
 span {
   display: inline-block;
 }
+
 button {
-  padding:5px;
+  width: 30px;
+  height: 30px;
+  background:url(umbrella.png) no-repeat;
+  background-size:100%;
+  padding:10px;
   display: inline-block;
   float:right;
   font-family: 'Raleway', sans-serif;
-  background-color: #00488d;
+  background-color: white;
   border-radius:100%;
   border: none;
-  box-shadow: 1px 1px 1px blue;
   margin-left:10px;
   color: white;
+  background-color: #e4f0fb;
 }
 
-
+button:hover{
+  opacity: 0.5;
+}
 
 
 /**********************************************
@@ -64,33 +67,27 @@ button {
 **********************************************/
 
 #seven-day{
-  /*width:90%;*/
   display:flex;
   justify-content: space-between;
   align-self:flex-start;
-  /*border: 2px solid orchid;*/
   min-width:70px;
 }
+
 .seven-day{
   display:inline-block;
   width:12%;
-  border: 1px solid #ddd;
+  border: 1px solid #d4d0db;
   height: 250px;
   align-self:flex-start;
   padding: 8px;
   background-color: white;
   margin-right:1px;
   overflow: auto;
-
 }
 
 #seven-day img {
   width:100%;
 }
-/*
-.icon-7 {
-  min-height: 102px;
-}*/
 
 #seven-day h3 {
   font-size: 3.5vmin;
@@ -99,70 +96,52 @@ button {
   text-align: center;
 }
 
-.temp h3 {
-  font-weight: bold;
-  font-size: 1em;
-  color:orange;
-
-}
 
 /**********************************************
                Hourly
 **********************************************/
-.hourly {
-
-}
 
 #center {
   text-align: center;
 }
 
-#hourly {
-  overflow: auto;
-  /*height: 360px;*/
-  /*width:90%;*/
-  /*display:inline-block;*/
-  /*margin: auto;*/
-  /*margin-left: 100px;*/
+#hourly div{
+  flex-grow: 1;
 }
 
 #hourly img {
 width: 60px;
 display:inline-block;
-margin-left: 100px;
 }
 
 #each-hour {
   display: block;
   flex-direction: row;
   align-items: center;
-  /*border-bottom: 1px solid black;*/
   margin-top:auto;
   margin: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  flex-basis: 100px;
+  justify-content: space-between;
+  border: 1px solid #d4d0db;
   background-color:white;
 }
 
 #each-hour div{
-  /*border: 1px solid green;*/
   display:inline-block;
 }
 
 .time{
-  display: inline-block;
+  display: inline;
   align-self: center;
   text-align: center;
   padding: 20px;
-  min-width: 107px;
 }
-.hourly div {
-  border: 1px solid orange;
-  /*display:flex;
-  flex-direction: row;*/
 
+
+.time div {
+  flex-grow:1;
 }
 
 .icon-24{
@@ -171,14 +150,21 @@ margin-left: 100px;
   margin-top: 20px;
 }
 
+.spacer {
+  flex-grow:.1;
+}
+
 .hourly-data {
-  min-width: 200px;
   margin:auto;
   text-align: center;
+}
 
+.hourly-data {
+  width: 50px;
 }
 
 h4 {
-  /*display:inline-block;*/
-  font-size:0.8em;
+  display:inline;
+  font-size:0.9em;
+  font-weight: normal;
 }

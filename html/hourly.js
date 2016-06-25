@@ -4,15 +4,19 @@ function hourlyCellBuilder(data, j){
   var hourlyCell='';
   hourlyCell += '<div id="each-hour">';
   hourlyCell += '<div class="time">';
-  hourlyCell += data[j][0];
+  hourlyCell += '<h4>'+ data[j][0]+'</h4>';
+  hourlyCell += '</div>';
+  hourlyCell += '<div class="spacer">';
   hourlyCell += '</div>';
   hourlyCell += '<div class="icon-24">';
   hourlyCell += html.getIcon(data[j][1]);
   hourlyCell += '</div>';
+  hourlyCell += '<div class="spacer">';
+  hourlyCell += '</div>';
   hourlyCell += '<div class="hourly-data">';
   hourlyCell += '<h4>';
   hourlyCell += data[j][2];
-  hourlyCell += '</h4>';
+  hourlyCell += '</h4><br>';
   hourlyCell += '<h4>';
   hourlyCell += Math.round(data[j][3])  + '°F';
   hourlyCell += '</h4>';
@@ -20,8 +24,7 @@ function hourlyCellBuilder(data, j){
   hourlyCell += '</div>';
 
   return hourlyCell;
-
-}
+};
 
 function timeFix (mTime){
   var readableTime = mTime.toString();
@@ -41,7 +44,7 @@ function timeFix (mTime){
     convertTime = sliceTime + ":00 am";
   } else {console.log('something has gone horribly wrong');}
   return convertTime;
-}
+};
 
 module.exports.hourlyCellBuilder = hourlyCellBuilder;
 module.exports.timeFix = timeFix;

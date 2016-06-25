@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <title>Simple Weather</title>
     <link href='https://fonts.googleapis.com/css?family=Arimo:400,700,400italic|Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link href="normalize.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
   </head>
   <body>
     <div id="container">
       <div id="wrapper">
-        <h1>Welcome to the Simple Weather App</h1>
+        <h1>A Simple Weather App</h1>
         <div id="search-container">
-            <label class="search" for="zip"></label>
-                <form action="/weather" method="get">
-                  <span class="help-block">Enter the zipcode for your location</span>
-                  <input id="address" name="address" type="text" placeholder="zipcode" class="input" required="">
-          <label class="search" for="submit"></label>
-          <button id="submit" type="submit" class="">Outlook</button>
-  </form>
+            <form action="/weather" method="get">
+              <span class="help-block">Enter the zipcode for your location</span>
+              <input id="address" name="address" type="text" placeholder="zipcode" class="input" required="">
+              <label class="search" for="submit"></label>
+              <button id="submit" type="submit" class=""></button>
+            </form>
         </div>
       </div>
     </div>

@@ -39,7 +39,8 @@ app.get('/weather', function (req, res){
   var queryLocation = geolocate + weatherZip + '&' + geolocateKey;
   request(queryLocation, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      var latlng = JSON.parse(body)
+      var latlng = JSON.parse(body);
+      var formattedAddress =latlng.results[0].formatted_address;
       var location = latlng.results[0].geometry.location;
       var lat = location.lat;
       var lng = location.lng
@@ -68,7 +69,7 @@ app.get('/weather', function (req, res){
 
           //build page
           var weather = html.builder();
-          var sevenDayContainer = '<h2> 7 Day Forecast for ' + req.query.address + '</h2>';
+          var sevenDayContainer = '<h2> 7 Day Forecast for ' + formattedAddress + '</h2>';
           sevenDayContainer +='<div id="seven-day">';
           for (var i=0; i < 7; i++){
             sevenDayContainer += sevenDaysHTML.sevenDayCellBuilder(everyDay, i);

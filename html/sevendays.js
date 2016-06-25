@@ -1,6 +1,5 @@
 var html            = require ('./html.js');
 
-
 function sevenDayCellBuilder (data, i){
 var sevenDayCell = '';
 sevenDayCell += '<div class="seven-day">';
@@ -10,7 +9,7 @@ sevenDayCell += html.getIcon(data[i][0]);
 sevenDayCell += '</div>';
 sevenDayCell += '<div class="seven-day-data">';
 sevenDayCell += '<h3 class="temp">';
-sevenDayCell += Math.round( data[i][1]) + '°F';
+sevenDayCell += Math.round( data[i][1] ) + '°F';
 sevenDayCell += '</h3>';
 sevenDayCell += '<h3>';
 sevenDayCell += 'Feels like ' + Math.round(data[i][2])  + '°F';
