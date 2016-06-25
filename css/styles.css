@@ -47,17 +47,14 @@ button {
   background-size:100%;
   padding:10px;
   display: inline-block;
-  float:right;
   font-family: 'Raleway', sans-serif;
-  background-color: white;
   border-radius:100%;
   border: none;
   margin-left:10px;
-  color: white;
   background-color: #e4f0fb;
 }
 
-button:hover{
+button:hover {
   opacity: 0.5;
 }
 
@@ -66,14 +63,14 @@ button:hover{
                7 Day
 **********************************************/
 
-#seven-day{
+#seven-day {
   display:flex;
   justify-content: space-between;
   align-self:flex-start;
   min-width:70px;
 }
 
-.seven-day{
+.seven-day {
   display:inline-block;
   width:12%;
   border: 1px solid #d4d0db;
@@ -91,7 +88,7 @@ button:hover{
 
 #seven-day h3 {
   font-size: 3.5vmin;
-  font-size:.8em;
+  font-size: .8em;
   font-weight: lighter;
   text-align: center;
 }
@@ -105,7 +102,7 @@ button:hover{
   text-align: center;
 }
 
-#hourly div{
+#hourly div {
   flex-grow: 1;
 }
 
@@ -128,11 +125,11 @@ display:inline-block;
   background-color:white;
 }
 
-#each-hour div{
+#each-hour div {
   display:inline-block;
 }
 
-.time{
+.time {
   display: inline;
   align-self: center;
   text-align: center;
@@ -144,7 +141,7 @@ display:inline-block;
   flex-grow:1;
 }
 
-.icon-24{
+.icon-24 {
   display:inline-block;
   margin:5px;
   margin-top: 20px;
