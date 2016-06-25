@@ -21,6 +21,20 @@ h1, h2 {
   margin:auto;
 }
 
+.terms-of-use {
+  display: inline-block;
+  width:100%;
+  margin: auto;
+  text-align:center;
+  padding:10px;
+  margin-top:10px;
+}
+
+.terms-of-use  a{
+  text-decoration: none;
+  color: inherit;
+  font-size: .6em;
+}
 
 /**********************************************
                 Form

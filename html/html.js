@@ -22,7 +22,8 @@ function htmlBuilder (){
 };
 
 function htmlCloser (){
-var html =  '</div>';//close wrapper
+var html = '<div class="terms-of-use"> <a href="http://forecast.io/" >Powered by Forecast</a></div>';
+html +=  '</div>';//close wrapper
 html += '</div>'; //close container
 html += '<script src="app.js"></script>'
 html += '</body>'
