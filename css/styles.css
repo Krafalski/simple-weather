@@ -1,4 +1,181 @@
+/**********************************************
+                General
+**********************************************/
+
 body {
-  background-color: blanchedalmond;
-  color: orange;
+  color: #00488d;
+  font-family: 'Arimo', sans-serif;
+  background-color: #e4f0fb;
+}
+
+h1, h2 {
+  font-family: 'Raleway', sans-serif;
+}
+
+#container{
+  margin:auto;
+}
+
+#wrapper {
+  width:90%;
+  margin:auto;
+}
+
+.terms-of-use {
+  display: inline-block;
+  width:100%;
+  margin: auto;
+  text-align:center;
+  padding:10px;
+  margin-top:10px;
+}
+
+.terms-of-use  a{
+  text-decoration: none;
+  color: inherit;
+  font-size: .6em;
+}
+
+/**********************************************
+                Form
+**********************************************/
+
+input {
+  display: inline-block;
+  padding:5px;
+  margin-left:5px;
+}
+
+form {
+  display: inline-block;
+}
+
+span {
+  display: inline-block;
+}
+
+button {
+  width: 30px;
+  height: 30px;
+  background:url(umbrella.png) no-repeat;
+  background-size:100%;
+  padding:10px;
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  border-radius:100%;
+  border: none;
+  margin-left:10px;
+  background-color: #e4f0fb;
+}
+
+button:hover {
+  opacity: 0.5;
+}
+
+
+/**********************************************
+               7 Day
+**********************************************/
+
+#seven-day {
+  display:flex;
+  justify-content: space-between;
+  align-self:flex-start;
+  min-width:70px;
+}
+
+.seven-day {
+  display:inline-block;
+  width:12%;
+  border: 1px solid #d4d0db;
+  height: 250px;
+  align-self:flex-start;
+  padding: 8px;
+  background-color: white;
+  margin-right:1px;
+  overflow: auto;
+}
+
+#seven-day img {
+  width:100%;
+}
+
+#seven-day h3 {
+  font-size: 3.5vmin;
+  font-size: .8em;
+  font-weight: lighter;
+  text-align: center;
+}
+
+
+/**********************************************
+               Hourly
+**********************************************/
+
+#center {
+  text-align: center;
+}
+
+#hourly div {
+  flex-grow: 1;
+}
+
+#hourly img {
+width: 60px;
+display:inline-block;
+}
+
+#each-hour {
+  display: block;
+  flex-direction: row;
+  align-items: center;
+  margin-top:auto;
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #d4d0db;
+  background-color:white;
+}
+
+#each-hour div {
+  display:inline-block;
+}
+
+.time {
+  display: inline;
+  align-self: center;
+  text-align: center;
+  padding: 20px;
+}
+
+
+.time div {
+  flex-grow:1;
+}
+
+.icon-24 {
+  display:inline-block;
+  margin:5px;
+  margin-top: 20px;
+}
+
+.spacer {
+  flex-grow:.1;
+}
+
+.hourly-data {
+  margin:auto;
+  text-align: center;
+}
+
+.hourly-data {
+  width: 50px;
+}
+
+h4 {
+  display:inline;
+  font-size:0.9em;
+  font-weight: normal;
 }

@@ -3,29 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Simple Weather</title>
+    <link href='https://fonts.googleapis.com/css?family=Arimo:400,700,400italic|Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link href="normalize.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
   </head>
   <body>
     <div id="container">
       <div id="wrapper">
-        <h1>This is it! The start of the weather app!</h1>
+        <h1>A Simple Weather App</h1>
         <div id="search-container">
-          <div class="search">
-            <label class="search" for="zip"></label>
-              <div>
-                <form action="/weather" method="get">
-                  <span class="help-block">Enter the zipcode for your location </span>
-                  <input id="address" name="address" type="text" placeholder="zipcode" class="input" required="">
-
-              </div>
-          </div>
-          <label class="search" for="submit"></label>
-          <button id="submit" type="submit" class="">Weather Me!</button>
-  </form>
-
+            <form action="/weather" method="get">
+              <span class="help-block">Enter the zipcode for your location</span>
+              <input id="address" name="address" type="text" placeholder="zipcode" class="input" required="">
+              <label class="search" for="submit"></label>
+              <button id="submit" type="submit" class=""></button>
+            </form>
         </div>
       </div>
     </div>
+
     <script src="app.js"></script>
   </body>
 </html>
