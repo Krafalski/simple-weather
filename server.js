@@ -11,7 +11,7 @@ var sevenDaysHTML   = require ('./html/sevendays.js');
 
 
 var app             = express();
-var port            = 3000;
+var port            = process.env.PORT || 3000;
 
 
 var geolocateKey    = process.env.GOOGLEKEY;
